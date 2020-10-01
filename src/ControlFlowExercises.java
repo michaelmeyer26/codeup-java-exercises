@@ -1,17 +1,13 @@
 public class ControlFlowExercises {
     public static void main (String[] args) {
-        int i = 5;
-        while (i <= 15) {
+        for (int i = 5; i <= 15; i++) {
             System.out.print(i + " ");
-            i++;
         }
         System.out.println();
 
-        long a = 2;
-        do {
+        for (long a = 2; a < 1000000; a = a * a) {
             System.out.println(a);
-            a = a * a;
-        } while (a < 1000000);
+        }
 
     }
 }
