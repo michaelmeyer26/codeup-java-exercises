@@ -7,10 +7,11 @@ public class ControlFlowExercises {
         }
         System.out.println();
 
-        int a = 0;
+        long a = 2;
         do {
-            a +=2;
             System.out.println(a);
-        } while (a < 100);
+            a = a * a;
+        } while (a < 1000000);
+
     }
 }
