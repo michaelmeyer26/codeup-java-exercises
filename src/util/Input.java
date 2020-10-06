@@ -10,7 +10,7 @@ public class Input {
     }
 
     public boolean yesNo() {
-        String answer = scanner.nextLine();
+        String answer = scanner.next();
         if (answer.contains("y")) {
             return true;
         } else {
