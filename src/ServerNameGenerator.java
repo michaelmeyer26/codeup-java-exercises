@@ -10,7 +10,6 @@ public class ServerNameGenerator {
 
     public static String getElement(String[] elements) {
         int randomElement = (int) (Math.random() * elements.length);
-        System.out.println(randomElement);
         return elements[randomElement];
     }
 }
