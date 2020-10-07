@@ -2,6 +2,8 @@ package movies;
 
 import util.Input;
 
+import java.util.Arrays;
+
 public class MoviesApplication {
     public static void main(String[] args) {
         Movie[] movieArray = MoviesArray.findAll();
@@ -16,6 +18,7 @@ public class MoviesApplication {
             System.out.println("4 - view movies in the horror category");
             System.out.println("5 - view movies in the musical category");
             System.out.println("6 - view movies in the scifi category");
+            System.out.println("7 - add a new movie to the list");
             System.out.print("\nEnter your choice: ");
             userOption = Input.getInt();
 
@@ -39,6 +42,13 @@ public class MoviesApplication {
                     case 6:
                         displayCategory = "scifi";
                         break;
+                    case 7:
+                        System.out.print("What is the movie's name? ");
+                        String newMovieName = Input.getString();
+                        System.out.println();
+                        System.out.println("What is the movie's genre? ");
+                        String newMovieCategory = Input.getString();
+                        movieArray = addMovie(movieArray, newMovieName, newMovieCategory);
                 }
                 System.out.println();
                 System.out.println("*---------------------------------------------------*");
@@ -55,8 +65,11 @@ public class MoviesApplication {
         } while (userOption != 0);
     }
 
-    public static void addMovie() {
-
+    public static Movie[] addMovie(Movie[] movieArray, String name, String category) {
+        Movie[] newMovieArray = Arrays.copyOf(movieArray, movieArray.length + 1);
+        Movie movieToAdd = new Movie(name, category);
+        newMovieArray[newMovieArray.length - 1] = movieToAdd;
+        return newMovieArray;
     }
 
 

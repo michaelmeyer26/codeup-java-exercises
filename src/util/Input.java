@@ -6,7 +6,7 @@ public class Input {
     private static Scanner scanner = new Scanner(System.in);
 
     public static String getString() {
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 
     public static boolean yesNo() {
@@ -19,12 +19,12 @@ public class Input {
     }
 
     public static int getInt() {
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.nextLine());
     }
 
     public static int getInt(int min, int max) {
         System.out.printf("Please enter a number from %d to %d: ", min, max);
-        int userInt = scanner.nextInt();
+        int userInt = Integer.parseInt(scanner.nextLine());
         if (userInt > max || userInt < min) {
             System.out.println("Invalid response");
             getInt(min, max);
@@ -33,12 +33,12 @@ public class Input {
     }
 
     public static double getDouble() {
-        return scanner.nextDouble();
+        return Double.parseDouble(scanner.nextLine());
     }
 
     public  static double getDouble(double min, double max) {
         System.out.printf("Please enter a number from %f to %f: ", min, max);
-        double userDouble = scanner.nextDouble();
+        double userDouble = Double.parseDouble(scanner.nextLine());
         if (userDouble > max || userDouble < min) {
             System.out.println("Invalid response");
             getDouble(min, max);
