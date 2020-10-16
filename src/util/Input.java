@@ -19,30 +19,68 @@ public class Input {
     }
 
     public static int getInt() {
-        return Integer.parseInt(scanner.nextLine());
+        try{
+            return Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("Must provide an integer.");
+            return getInt();
+        }
     }
 
     public static int getInt(int min, int max) {
-        System.out.printf("Please enter a number from %d to %d: ", min, max);
-        int userInt = Integer.parseInt(scanner.nextLine());
-        if (userInt > max || userInt < min) {
-            System.out.println("Invalid response");
-            getInt(min, max);
+        try {
+            System.out.printf("Please enter a number from %d to %d: ", min, max);
+            int userInt = Integer.parseInt(scanner.nextLine());
+            if (userInt > max || userInt < min) {
+                System.out.printf("Invalid response, must be between %d and %d\n", min, max);
+                getInt(min, max);
+            }
+            return userInt;
+        } catch (NumberFormatException e) {
+            System.out.println("Must provide an integer.");
+            return getInt(min, max);
         }
-        return userInt;
     }
 
     public static double getDouble() {
-        return Double.parseDouble(scanner.nextLine());
+        try{
+            return Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e){
+            System.out.println("Must provide a number.");
+            return getDouble();
+        }
     }
 
-    public  static double getDouble(double min, double max) {
-        System.out.printf("Please enter a number from %f to %f: ", min, max);
-        double userDouble = Double.parseDouble(scanner.nextLine());
-        if (userDouble > max || userDouble < min) {
-            System.out.println("Invalid response");
-            getDouble(min, max);
+    public static double getDouble(double min, double max) {
+        try {
+            System.out.printf("Please enter a number from %f to %f: ", min, max);
+            Double userDouble = Double.parseDouble(scanner.nextLine());
+            if (userDouble > max || userDouble < min) {
+                System.out.printf("Invalid response, must be between %f and %f\n", min, max);
+                getDouble(min, max);
+            }
+            return userDouble;
+        } catch (NumberFormatException e) {
+            System.out.println("Must provide a number.");
+            return getDouble(min, max);
         }
-        return userDouble;
+    }
+
+    public static int getBinary() {
+        try{
+            return Integer.valueOf(scanner.nextLine(), 2);
+        } catch (Exception e) {
+            System.out.println("Must provide a binary number.");
+            return getBinary();
+        }
+    }
+
+    public static int getHexadecimal() {
+        try{
+            return Integer.valueOf(scanner.nextLine(), 16);
+        } catch (Exception e) {
+            System.out.println("Must provide a hexadecimal number.");
+            return getHexadecimal();
+        }
     }
 }
